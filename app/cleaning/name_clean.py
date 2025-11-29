@@ -7,4 +7,4 @@ class NameNormalizer(CleaningStep):
         name = passenger.Name.strip()
         name = re.sub(r"\s+", " ", name)
         name = " ".join(part.capitalize() for part in name.split())
-        return passenger.copy(update={"Name": name})
+        return passenger.model_copy(update={"Name": name})
