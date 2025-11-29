@@ -1,5 +1,3 @@
-import pytest
-
 from app.models import PassengerClean
 
 def test_title_extract():
