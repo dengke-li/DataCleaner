@@ -2,6 +2,7 @@ import re
 
 from app.models import PassengerClean, CleaningStep
 
+
 class NameNormalizer(CleaningStep):
     def apply(self, passenger: PassengerClean) -> PassengerClean:
         name = passenger.Name.strip()

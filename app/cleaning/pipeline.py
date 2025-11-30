@@ -23,10 +23,13 @@ class CleanerPipeline:
 
 
 def build_titanic_cleaner() -> CleanerPipeline:
-    return CleanerPipeline([
-        TitleExtractor(),
-        TitleNormalizer(),
-        NameNormalizer(),
-    ])
+    return CleanerPipeline(
+        [
+            TitleExtractor(),
+            TitleNormalizer(),
+            NameNormalizer(),
+        ]
+    )
+
 
 titanic_cleaner = build_titanic_cleaner()

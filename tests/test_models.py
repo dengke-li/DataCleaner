@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_passage_raw():
     from app.models import PassengerRaw
 

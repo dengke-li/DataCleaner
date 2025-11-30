@@ -7,14 +7,14 @@ from app.models import PassengerClean, CleaningStep
 _TITLE_REGEX = re.compile(r",\s*([^\.]+)\.")
 
 _TITLE_MAP = {
-"mr": "Mr",
-"sir": "Mr",
-"mrs": "Mrs",
-"miss": "Mrs",
-"ms": "Mrs",
-"mme": "Mrs",
-"mlle": "Mrs",
-"lady": "Mrs",
+    "mr": "Mr",
+    "sir": "Mr",
+    "mrs": "Mrs",
+    "miss": "Mrs",
+    "ms": "Mrs",
+    "mme": "Mrs",
+    "mlle": "Mrs",
+    "lady": "Mrs",
 }
 
 
@@ -26,6 +26,7 @@ class TitleExtractor(CleaningStep):
             raw = re.sub(r"[^A-Za-z]", "", match.group(1))
             title = raw or None
         return passenger.model_copy(update={"Title": title})
+
 
 class TitleNormalizer(CleaningStep):
     def apply(self, passenger: PassengerClean) -> PassengerClean:
