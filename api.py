@@ -1,14 +1,12 @@
-from fastapi import FastAPI, HTTPException, status
-from fastapi.exceptions import RequestValidationError
-from fastapi.requests import Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
 
 from app.models import PassengerRaw, PassengerClean
 from app.cleaning.pipeline import titanic_cleaner
-
+from error_handlers import register_exception_handlers
 
 app = FastAPI(title="Titanic passager data Cleaner", version="1.0")
-
+# Register error handlers
+register_exception_handlers(app)
 
 @app.post("/clean/passenger", response_model=PassengerClean)
 def clean_passager(payload: PassengerRaw):
