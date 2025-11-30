@@ -13,7 +13,7 @@ class PassengerRaw(BaseModel):
     @field_validator("Name", mode="before")
     @classmethod
     def validate_name(cls, v):
-        if not v.strip():
+        if not v or not v.strip():
             raise ValueError("Name must not be blank")
         return v
 
